@@ -1,9 +1,9 @@
 <?php
 
-class Facturas extends conectar{
+class Facturas extends Conectar{
 
     public function get_Facturas(){
-        $conectar = parent::conexion();
+        $Conectar = parent::Conexion();
         parent::set_names();
         $sql="SELECT * FROM ma_facturas WHERE ESTADO = 1";
         $sql=$conectar->prepare($sql);
@@ -13,7 +13,7 @@ class Facturas extends conectar{
     }
 
     public function get_Factura($ID){
-        $conectar= parent::conexion();
+        $Conectar= parent::Conexion();
         parent::set_names();
         $sql="SELECT * FROM ma_facturas WHERE ESTADO = 1 AND ID = ?";
         $sql=$conectar->prepare($sql);
@@ -23,7 +23,7 @@ class Facturas extends conectar{
     }
 
     public function Insertar_Facturas($NUMERO_FACTURA,$ID_SOCIO,$FECHA_FACTURA,$DETALLE,$SUBTOTAL,$TOTAL_ISV,$TOTAL,$FECHA_VENCIMIENTO){
-        $conectar= parent::conexion();
+        $Conectar= parent::Conexion();
         parent::set_names();
         $sql="INSERT INTO ma_facturas(ID,NUMERO_FACTURA,ID_SOCIO,FECHA_FACTURA,DETALLE,SUBTOTAL,TOTAL_ISV,TOTAL,FECHA_VENCIMIENTO,ESTADO)
         VALUES (NULL,?,?,?,?,?,?,?,?,'1');";
@@ -42,7 +42,7 @@ class Facturas extends conectar{
     }
 
     public function Eliminar_Factura($ID){
-        $conectar = parent::conexion();
+        $Conectar = parent::Conexion();
         parent::set_names();
         $sql="DELETE  FROM ma_facturas WHERE ID = ?";
         $sql=$conectar->prepare($sql);
@@ -53,7 +53,7 @@ class Facturas extends conectar{
     }
 
     public function Actualizar_Facturas($ID, $NUMERO_FACTURA, $ID_SOCIO, $FECHA_FACTURA, $DETALLE, $SUBTOTAL, $TOTAL_ISV, $TOTAL, $FECHA_VENCIMIENTO, $ESTADO){            
-        $conectar = parent::conexion();
+        $Conectar = parent::Conexion();
         parent::set_names();
         $sql="UPDATE ma_facturas 
             SET NUMERO_FACTURA=?, ID_SOCIO=?, FECHA_FACTURA=?, DETALLE=?, SUBTOTAL=?, TOTAL_ISV=?, TOTAL=?, FECHA_VENCIMIENTO=?, ESTADO=? 
