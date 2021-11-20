@@ -1,6 +1,6 @@
 <?php
 //codiigo de las funciones
-class Socios_negocio  extends conectar{
+class Socios_negocio  extends Conectar{
  
       public function get_socios_negocio(){
           $conectar= parent::Conexion();
