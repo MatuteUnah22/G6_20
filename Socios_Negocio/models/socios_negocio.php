@@ -3,7 +3,7 @@
 class Socios_negocio  extends conectar{
  
       public function get_socios_negocio(){
-          $conectar= parent::conexion();
+          $conectar= parent::Conexion();
           parent::set_names();
           $sql="SELECT * FROM ma_socios_negocio WHERE ESTADO = 0";
           $sql=$conectar->prepare($sql);
@@ -12,7 +12,7 @@ class Socios_negocio  extends conectar{
       }
 
       public function getsocio_negocio($id){
-          $conectar=parent::conexion();
+          $conectar=parent::Conexion();
           parent::set_names();
           $sql="SELECT * FROM ma_socios_negocio WHERE ESTADO=0 AND ID = ?";
           $sql=$conectar->prepare($sql);
@@ -22,7 +22,7 @@ class Socios_negocio  extends conectar{
        }
 
        public function insert_socios_negocio($NOMBRE,$RAZON_SOCIAL,$DIRECCION,$TIPO_SOCIO,$CONTACTO,$EMAIL,$FECHA_CREADO,$ESTADO,$TELEFONO){
-           $conectar=parent::conexion();
+           $conectar=parent::Conexion();
            parent::set_names();
            $sql="INSERT INTO ma_socios_negocio(ID,NOMBRE,RAZON_SOCIAL,DIRECCION,TIPO_SOCIO,CONTACTO,EMAIL,FECHA_CREADO,ESTADO,TELEFONO)
            VALUES (NULL,?,?,?,?,?,?,?,?,?);";
@@ -41,7 +41,7 @@ class Socios_negocio  extends conectar{
        }
 
        public function actualizar_socios_negocio($id,$NOMBRE,$RAZON_SOCIAL,$DIRECCION,$TIPO_SOCIO,$CONTACTO,$EMAIL,$FECHA_CREADO,$ESTADO,$TELEFONO){
-        $conectar=parent::conexion();
+        $conectar=parent::Conexion();
         parent::set_names();
         $sql="UPDATE ma_socios_negocio SET NOMBRE=?, RAZON_SOCIAL=?, DIRECCION=?, TIPO_SOCIO=?, CONTACTO=?, EMAIL=?,FECHA_CREADO=?, ESTADO=?, TELEFONO=? WHERE  ID = ?";
         $sql=$conectar->prepare($sql);
@@ -60,7 +60,7 @@ class Socios_negocio  extends conectar{
     }
 
     public function eliminar_socios_negocio($id){
-        $conectar=parent::conexion();
+        $conectar=parent::Conexion();
         parent::set_names();
         $sql="DELETE FROM ma_socios_negocio WHERE  ID = ?";
         $sql=$conectar->prepare($sql);
