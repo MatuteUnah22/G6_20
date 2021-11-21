@@ -11,8 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('Access-Control-Allow-Origin: *');
     header('Content-type: application/json');
 
-    require_once("../config/conexion.php");
-    require_once("../models/facturas.php");
+    require_once("../../config/conexion.php");
+    require_once("../../Facturas/models/facturas.php");
+
 
     $Facturas = NEW  Facturas();
     $body = json_decode(file_get_contents("php://input"),true);

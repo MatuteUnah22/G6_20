@@ -6,7 +6,7 @@ class Facturas extends Conectar{
         $Conectar = parent::Conexion();
         parent::set_names();
         $sql="SELECT * FROM ma_facturas WHERE ESTADO = 1";
-        $sql=$conectar->prepare($sql);
+        $sql=$Conectar->prepare($sql);
         $sql->execute();
         return $resultado=$sql->fetchALL(PDO::FETCH_ASSOC);
 
@@ -16,7 +16,7 @@ class Facturas extends Conectar{
         $Conectar= parent::Conexion();
         parent::set_names();
         $sql="SELECT * FROM ma_facturas WHERE ESTADO = 1 AND ID = ?";
-        $sql=$conectar->prepare($sql);
+        $sql=$Conectar->prepare($sql);
         $sql->bindValue(1, $ID);
         $sql->execute();
         return $resultado=$sql->fetchALL(PDO::FETCH_ASSOC);
@@ -27,7 +27,7 @@ class Facturas extends Conectar{
         parent::set_names();
         $sql="INSERT INTO ma_facturas(ID,NUMERO_FACTURA,ID_SOCIO,FECHA_FACTURA,DETALLE,SUBTOTAL,TOTAL_ISV,TOTAL,FECHA_VENCIMIENTO,ESTADO)
         VALUES (NULL,?,?,?,?,?,?,?,?,'1');";
-        $sql=$conectar->prepare($sql);
+        $sql=$Conectar->prepare($sql);
         $sql->bindValue(1,$NUMERO_FACTURA);
         $sql->bindValue(2,$ID_SOCIO); 
         $sql->bindValue(3,$FECHA_FACTURA);
@@ -45,7 +45,7 @@ class Facturas extends Conectar{
         $Conectar = parent::Conexion();
         parent::set_names();
         $sql="DELETE  FROM ma_facturas WHERE ID = ?";
-        $sql=$conectar->prepare($sql);
+        $sql=$Conectar->prepare($sql);
         $sql->bindValue(1, $ID);
         $sql->execute();
         return $resultado=$sql->fetchALL(PDO::FETCH_ASSOC);
@@ -58,7 +58,7 @@ class Facturas extends Conectar{
         $sql="UPDATE ma_facturas 
             SET NUMERO_FACTURA=?, ID_SOCIO=?, FECHA_FACTURA=?, DETALLE=?, SUBTOTAL=?, TOTAL_ISV=?, TOTAL=?, FECHA_VENCIMIENTO=?, ESTADO=? 
             WHERE ID =?";
-        $sql=$conectar->prepare($sql);
+        $sql=$Conectar->prepare($sql);
         $sql->bindValue(1, $NUMERO_FACTURA);
         $sql->bindValue(2, $ID_SOCIO); 
         $sql->bindValue(3, $FECHA_FACTURA);
